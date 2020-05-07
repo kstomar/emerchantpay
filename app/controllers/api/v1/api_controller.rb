@@ -6,7 +6,7 @@ class Api::V1::ApiController < ActionController::API
 
   def authenticate_request
     auth = AuthorizeApiRequest.call(request.headers)
-    @current_user = User.last
+    @current_user = auth.result
     render_unauthorized_response(auth.errors) and return unless @current_user
   end
 end

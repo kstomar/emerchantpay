@@ -10,7 +10,7 @@ module Api
         if transaction.success?
           render_success_response({}, I18n.t('created', resource: 'Transaction'))
         else
-          render_unprocessable_entity_response(transaction)
+          render_unprocessable_entity(transaction.errors)
         end
       end
 

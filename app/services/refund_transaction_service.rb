@@ -23,7 +23,7 @@ class RefundTransactionService < ApplicationService
   def refund
     current_user.total_transaction_sum -= transaction.amount
     refund_trans = Refund.create(amount: transaction.amount, status: "approved", user: current_user, parent: transaction, customer_email: transaction.customer_email)
-    current_user.amount -= refund_trans.amount
+    current_user.amount += refund_trans.amount
     transaction.refunded!
     current_user.save!
   end
