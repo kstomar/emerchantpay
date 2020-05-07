@@ -12,7 +12,7 @@ class AuthenticateUser < ApplicationService
     expiry = 24.hours.from_now
     user ||= authenticate_user
     if user
-      { token: ::JsonWebToken.encode(user_id: user.id, exp: expiry, user_type: 'User'), user: allowed_attributes(user) }
+      { token: JsonWebToken.encode(user_id: user.id, exp: expiry, user_type: 'User'), user: allowed_attributes(user) }
     end
   end
 
