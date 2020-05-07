@@ -6,8 +6,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :password_digest
       t.string :type
       t.text :description
-      t.integer :status, defult: 0
-      t.float :total_transaction_sum
+      t.integer :status, default: 0
+      t.float :total_transaction_sum, default: 0
+      t.float :amount, default: 0
       t.timestamps
     end
   end

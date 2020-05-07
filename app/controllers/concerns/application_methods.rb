@@ -13,7 +13,7 @@ module ApplicationMethods
     begin
       yield
     rescue ActiveRecord::RecordNotFound => e
-      @status = 404
+      render_unprocessable_entity({not_found: 'Record not found'}) && return
     rescue ActiveRecord::RecordInvalid => e
       render_unprocessable_entity_response(e.record) && return
     rescue ArgumentError => e

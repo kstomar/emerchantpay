@@ -31,5 +31,8 @@
 
 en:
   hello: "Hello world"
+  created: '%{resource} has been created successfully.'
   errors:
     invalid_credentials: 'Email address or password does not match.'
+    approved_transaction: "Transaction should be approved."
+    inactive_account: 'Please activate your account.'
