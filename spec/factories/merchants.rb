@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :merchant do
     name { "merchant" }
-    email {"merchant@yopmail.com"}
+    email { Faker::Internet.email }
     amount { 1200 }
     password_confirmation {"password"}
     password {"password"}
